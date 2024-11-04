@@ -40,10 +40,12 @@ set(
 	--enable-vp8
 	--enable-vp9
 	--disable-webm-io
-	--prefix="${LIBVPX_INSTALL_PREFIX}"
-	# --extra-cflags="${CMAKE_C_FLAGS}"
-	# --extra-cxxflags="${CMAKE_CXX_FLAGS}"
+	--prefix=${LIBVPX_INSTALL_PREFIX}
+	--extra-cflags=${CMAKE_C_FLAGS}
+	--extra-cxxflags=${CMAKE_CXX_FLAGS}
 )
+
+list(APPEND FFMPEG_CONFIGURE_FLAGS "--ld=${CMAKE_C_COMPILER}")
 
 if (NOT EXISTS "${LIBVPX_BUILD_DIRECTORY}")
 	file(MAKE_DIRECTORY "${LIBVPX_BUILD_DIRECTORY}")
