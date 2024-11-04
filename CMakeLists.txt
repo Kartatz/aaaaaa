@@ -40,6 +40,7 @@ set(
 	--enable-vp8
 	--enable-vp9
 	--disable-webm-io
+	--disable-werror
 	--prefix=${LIBVPX_INSTALL_PREFIX}
 	--extra-cflags=${CMAKE_C_FLAGS}
 	--extra-cxxflags=${CMAKE_CXX_FLAGS}
