@@ -1,0 +1,3 @@
+[submodule "submodules/libvpx"]
+	path = submodules/libvpx
+	url = https://github.com/webmproject/libvpx

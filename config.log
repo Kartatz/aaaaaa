@@ -1,0 +1,84 @@
+# ./submodules/libvpx/configure 
+  enabling vp8_encoder
+  enabling vp8_decoder
+  enabling vp9_encoder
+  enabling vp9_decoder
+Configuring for target 'arm64-linux-gcc'
+  enabling arm64
+check_cpp
+BEGIN /data/data/com.termux/files/usr/tmp/vpx-conf-1371-24232.c
+     1	#if !(__pie__ || __PIE__)
+     2	#error Neither __pie__ or __PIE__ are set
+     3	#endif
+END /data/data/com.termux/files/usr/tmp/vpx-conf-1371-24232.c
+-o /data/data/com.termux/files/usr/tmp/vpx-conf-1371-24232.o /data/data/com.termux/files/usr/tmp/vpx-conf-1371-24232.c
+./submodules/libvpx/build/make/configure.sh: line 298: -E: command not found
+  enabling pic
+  enabling runtime_cpu_detect
+check_cxxflags -march=armv8-a
+check_cxx -Werror -march=armv8-a
+BEGIN /data/data/com.termux/files/usr/tmp/vpx-conf-1371-24232.cc
+     1	int x;
+END /data/data/com.termux/files/usr/tmp/vpx-conf-1371-24232.cc
+g++ -Werror -march=armv8-a -c -o /data/data/com.termux/files/usr/tmp/vpx-conf-1371-24232.o /data/data/com.termux/files/usr/tmp/vpx-conf-1371-24232.cc
+check_cflags -march=armv8-a
+check_cc -Werror -march=armv8-a
+BEGIN /data/data/com.termux/files/usr/tmp/vpx-conf-1371-24232.c
+     1	int x;
+END /data/data/com.termux/files/usr/tmp/vpx-conf-1371-24232.c
+gcc -Werror -march=armv8-a -c -o /data/data/com.termux/files/usr/tmp/vpx-conf-1371-24232.o /data/data/com.termux/files/usr/tmp/vpx-conf-1371-24232.c
+add_asflags -march=armv8-a
+check_cflags -march=armv8-a
+check_cc -Werror -march=armv8-a
+BEGIN /data/data/com.termux/files/usr/tmp/vpx-conf-1371-24232.c
+     1	int x;
+END /data/data/com.termux/files/usr/tmp/vpx-conf-1371-24232.c
+gcc -march=armv8-a -Werror -march=armv8-a -c -o /data/data/com.termux/files/usr/tmp/vpx-conf-1371-24232.o /data/data/com.termux/files/usr/tmp/vpx-conf-1371-24232.c
+  enabling neon
+check_cflags -march=armv8.2-a+dotprod
+check_cc -Werror -march=armv8.2-a+dotprod
+BEGIN /data/data/com.termux/files/usr/tmp/vpx-conf-1371-24232.c
+     1	int x;
+END /data/data/com.termux/files/usr/tmp/vpx-conf-1371-24232.c
+gcc -march=armv8-a -Werror -march=armv8.2-a+dotprod -c -o /data/data/com.termux/files/usr/tmp/vpx-conf-1371-24232.o /data/data/com.termux/files/usr/tmp/vpx-conf-1371-24232.c
+  enabling neon_dotprod
+check_cflags -march=armv8.2-a+dotprod+i8mm
+check_cc -Werror -march=armv8.2-a+dotprod+i8mm
+BEGIN /data/data/com.termux/files/usr/tmp/vpx-conf-1371-24232.c
+     1	int x;
+END /data/data/com.termux/files/usr/tmp/vpx-conf-1371-24232.c
+gcc -march=armv8-a -Werror -march=armv8.2-a+dotprod+i8mm -c -o /data/data/com.termux/files/usr/tmp/vpx-conf-1371-24232.o /data/data/com.termux/files/usr/tmp/vpx-conf-1371-24232.c
+  enabling neon_i8mm
+check_cflags -march=armv8.2-a+dotprod+i8mm+sve
+check_cc -Werror -march=armv8.2-a+dotprod+i8mm+sve
+BEGIN /data/data/com.termux/files/usr/tmp/vpx-conf-1371-24232.c
+     1	int x;
+END /data/data/com.termux/files/usr/tmp/vpx-conf-1371-24232.c
+gcc -march=armv8-a -Werror -march=armv8.2-a+dotprod+i8mm+sve -c -o /data/data/com.termux/files/usr/tmp/vpx-conf-1371-24232.o /data/data/com.termux/files/usr/tmp/vpx-conf-1371-24232.c
+  enabling sve
+check_cflags -march=armv9-a+sve2
+check_cc -Werror -march=armv9-a+sve2
+BEGIN /data/data/com.termux/files/usr/tmp/vpx-conf-1371-24232.c
+     1	int x;
+END /data/data/com.termux/files/usr/tmp/vpx-conf-1371-24232.c
+gcc -march=armv8-a -Werror -march=armv9-a+sve2 -c -o /data/data/com.termux/files/usr/tmp/vpx-conf-1371-24232.o /data/data/com.termux/files/usr/tmp/vpx-conf-1371-24232.c
+  enabling sve2
+check_cc -march=armv8.2-a+dotprod+i8mm+sve
+BEGIN /data/data/com.termux/files/usr/tmp/vpx-conf-1371-24232.c
+     1	#ifndef __ARM_NEON_SVE_BRIDGE
+     2	#error 1
+     3	#endif
+     4	#include <arm_sve.h>
+     5	#include <arm_neon_sve_bridge.h>
+END /data/data/com.termux/files/usr/tmp/vpx-conf-1371-24232.c
+gcc -march=armv8-a -march=armv8.2-a+dotprod+i8mm+sve -c -o /data/data/com.termux/files/usr/tmp/vpx-conf-1371-24232.o /data/data/com.termux/files/usr/tmp/vpx-conf-1371-24232.c
+check_cc -march=armv8.2-a+dotprod+i8mm+sve
+BEGIN /data/data/com.termux/files/usr/tmp/vpx-conf-1371-24232.c
+     1	#include <arm_sve.h>
+     2	void other(void);
+     3	svfloat32_t func(svfloat32_t a) {
+     4	  other();
+     5	  return a;
+     6	}
+END /data/data/com.termux/files/usr/tmp/vpx-conf-1371-24232.c
+gcc -march=armv8-a -march=armv8.2-a+dotprod+i8mm+sve -c -o /data/data/com.termux/files/usr/tmp/vpx-conf-1371-24232.o /data/data/com.termux/files/usr/tmp/vpx-conf-1371-24232.c
