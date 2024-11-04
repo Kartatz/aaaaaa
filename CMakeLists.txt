@@ -20,6 +20,7 @@ set(SOVERSION_SEPARATOR ".")
 set(LIBVPX_SOURCE_DIRECTORY "${CMAKE_SOURCE_DIR}/submodules/libvpx")
 set(LIBVPX_BUILD_DIRECTORY "${CMAKE_BINARY_DIR}/libvpx-build")
 set(LIBVPX_INSTALL_PREFIX "${LIBVPX_BUILD_DIRECTORY}/binaries")
+set(LIBVPX_PATCH_DIRECTORY "${CMAKE_SOURCE_DIR}/patches")
 
 set(LIBVPX_INCLUDE_DIR "${LIBVPX_BUILD_DIRECTORY}/binaries/include")
 
@@ -114,6 +115,20 @@ set(
 
 if (NOT EXISTS "${LIBVPX_BUILD_DIRECTORY}")
 	file(MAKE_DIRECTORY "${LIBVPX_BUILD_DIRECTORY}")
+endif()
+
+if (NOT EXISTS "${LIBVPX_SOURCE_DIRECTORY}/.patched")
+	message("-- Patching libvpx")
+	
+	execute_process(
+		COMMAND patch
+		--directory=${LIBVPX_SOURCE_DIRECTORY}
+		--strip=1
+		--input=${LIBVPX_PATCH_DIRECTORY}/libvpx.patch
+		COMMAND_ERROR_IS_FATAL ANY
+	)
+	
+	file(WRITE "${CMAKE_CURRENT_SOURCE_DIR}/submodules/curl/.patched" "")
 endif()
 
 if (NOT EXISTS "${LIBVPX_BUILD_DIRECTORY}/Makefile")
