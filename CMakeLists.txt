@@ -22,6 +22,8 @@ set(LIBVPX_BUILD_DIRECTORY "${CMAKE_BINARY_DIR}/libvpx-build")
 set(LIBVPX_INSTALL_PREFIX "${LIBVPX_BUILD_DIRECTORY}/binaries")
 set(LIBVPX_PATCH_DIRECTORY "${CMAKE_SOURCE_DIR}/patches")
 
+set(LIBVPX_PATCH_CHECKPOINT "${LIBVPX_SOURCE_DIRECTORY}/.patched")
+
 set(LIBVPX_INCLUDE_DIR "${LIBVPX_BUILD_DIRECTORY}/binaries/include")
 
 # Extract libvpx version
@@ -117,7 +119,7 @@ if (NOT EXISTS "${LIBVPX_BUILD_DIRECTORY}")
 	file(MAKE_DIRECTORY "${LIBVPX_BUILD_DIRECTORY}")
 endif()
 
-if (NOT EXISTS "${LIBVPX_SOURCE_DIRECTORY}/.patched")
+if (NOT EXISTS "${LIBVPX_PATCH_CHECKPOINT}")
 	message("-- Patching libvpx")
 	
 	execute_process(
@@ -128,7 +130,7 @@ if (NOT EXISTS "${LIBVPX_SOURCE_DIRECTORY}/.patched")
 		COMMAND_ERROR_IS_FATAL ANY
 	)
 	
-	file(WRITE "${CMAKE_CURRENT_SOURCE_DIR}/submodules/curl/.patched" "")
+	file(WRITE "${LIBVPX_PATCH_CHECKPOINT}" "")
 endif()
 
 if (NOT EXISTS "${LIBVPX_BUILD_DIRECTORY}/Makefile")
