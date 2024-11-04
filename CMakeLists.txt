@@ -45,6 +45,8 @@ set(
 	--extra-cxxflags=${CMAKE_CXX_FLAGS}
 )
 
+message("CC=${ANDROID_TOOLCHAIN_ROOT}/bin/${TOOLCHAIN_PREFIX}-clang")
+
 set(
 	LIBVPX_ENV
 	"LD=${CMAKE_C_COMPILER}"
