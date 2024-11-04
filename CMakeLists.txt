@@ -41,8 +41,8 @@ set(
 	--enable-vp9
 	--disable-webm-io
 	--prefix="${LIBVPX_INSTALL_PREFIX}"
-	--extra-cflags="${CMAKE_C_FLAGS}"
-	--extra-cxxflags="${CMAKE_CXX_FLAGS}"
+	# --extra-cflags="${CMAKE_C_FLAGS}"
+	# --extra-cxxflags="${CMAKE_CXX_FLAGS}"
 )
 
 if (NOT EXISTS "${LIBVPX_BUILD_DIRECTORY}")
