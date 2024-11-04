@@ -35,12 +35,12 @@ endif()
 
 set(
 	LIBVPX_EXTRA_C_FLAGS
-	"${CMAKE_C_FLAGS} -Wno-macro-redefined -ldl -lrt"
+	"${CMAKE_C_FLAGS} -Wno-error -Wno-macro-redefined -ldl -lrt"
 )
 
 set(
 	LIBVPX_EXTRA_CXX_FLAGS
-	"${CMAKE_CXX_FLAGS} -Wno-macro-redefined -ldl -lrt"
+	"${CMAKE_CXX_FLAGS} -Wno-error  -Wno-macro-redefined -ldl -lrt"
 )
 
 set(LIBVPX_CC "${ANDROID_TOOLCHAIN_ROOT}/bin/${TOOLCHAIN_PREFIX}-clang")
