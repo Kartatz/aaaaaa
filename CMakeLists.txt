@@ -35,17 +35,17 @@ endif()
 
 set(
 	LIBVPX_EXTRA_C_FLAGS
-	"${CMAKE_C_FLAGS} -Wno-macro-redefined -pthread"
+	"${CMAKE_C_FLAGS} -Wno-macro-redefined"
 )
 
 set(
 	LIBVPX_EXTRA_CXX_FLAGS
-	"${CMAKE_CXX_FLAGS} -Wno-macro-redefined -pthread"
+	"${CMAKE_CXX_FLAGS} -Wno-macro-redefined"
 )
 
 set(LIBVPX_CC "${ANDROID_TOOLCHAIN_ROOT}/bin/${TOOLCHAIN_PREFIX}-clang")
 set(LIBVPX_CXX "${ANDROID_TOOLCHAIN_ROOT}/bin/${TOOLCHAIN_PREFIX}-clang++")
-set(LIBVPX_LD "${LIBVPX_CC}")
+set(LIBVPX_LD "${LIBVPX_CXX}")
 set(LIBVPX_AR "${CMAKE_AR}")
 set(LIBVPX_NM "${CMAKE_NM}")
 set(LIBVPX_STRIP "${CMAKE_STRIP}")
