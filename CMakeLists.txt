@@ -35,13 +35,21 @@ endif()
 
 set(
 	LIBVPX_EXTRA_C_FLAGS
-	"${CMAKE_C_FLAGS} -Wno-macro-redefined"
+	"${CMAKE_C_FLAGS} -Wno-macro-redefined -pthread"
 )
 
 set(
 	LIBVPX_EXTRA_CXX_FLAGS
-	"${CMAKE_CXX_FLAGS} -Wno-macro-redefined"
+	"${CMAKE_CXX_FLAGS} -Wno-macro-redefined -pthread"
 )
+
+set(LIBVPX_CC "${ANDROID_TOOLCHAIN_ROOT}/bin/${TOOLCHAIN_PREFIX}-clang")
+set(LIBVPX_CXX "${ANDROID_TOOLCHAIN_ROOT}/bin/${TOOLCHAIN_PREFIX}-clang++")
+set(LIBVPX_LD "${LIBVPX_CC}")
+set(LIBVPX_AR "${CMAKE_AR}")
+set(LIBVPX_NM "${CMAKE_NM}")
+set(LIBVPX_STRIP "${CMAKE_STRIP}")
+set(LIBVPX_RANLIB "${CMAKE_RANLIB}")
 
 set(
 	LIBVPX_CONFIGURE_FLAGS
@@ -71,17 +79,15 @@ set(
 	--extra-cxxflags=${LIBVPX_EXTRA_CXX_FLAGS}
 )
 
-message("CC=${ANDROID_TOOLCHAIN_ROOT}/bin/${TOOLCHAIN_PREFIX}-clang")
-
 set(
 	LIBVPX_ENV
-	"LD=${ANDROID_TOOLCHAIN_ROOT}/bin/${TOOLCHAIN_PREFIX}-clang"
-	"AR=${CMAKE_AR}"
-	"CC=${ANDROID_TOOLCHAIN_ROOT}/bin/${TOOLCHAIN_PREFIX}-clang"
-	"CXX=${ANDROID_TOOLCHAIN_ROOT}/bin/${TOOLCHAIN_PREFIX}-clang++"
-	"NM=${CMAKE_NM}"
-	"STRIP=${CMAKE_STRIP}"
-	"RANLIB=${CMAKE_RANLIB}"
+	"CC=${LIBVPX_CC}"
+	"CXX=${LIBVPX_CXX}"
+	"LD=${LIBVPX_LD}"
+	"AR=${LIBVPX_AR}"
+	"NM=${LIBVPX_NM}"
+	"STRIP=${LIBVPX_STRIP}"
+	"RANLIB=${LIBVPX_RANLIB}"
 )
 
 if (NOT EXISTS "${LIBVPX_BUILD_DIRECTORY}")
