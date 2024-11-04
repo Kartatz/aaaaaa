@@ -35,12 +35,12 @@ endif()
 
 set(
 	LIBVPX_EXTRA_C_FLAGS
-	"${CMAKE_C_FLAGS} -Wno-error -Wl,-ldl -Wl,-lrt  -pthread"
+	"${CMAKE_C_FLAGS} -Wno-error"
 )
 
 set(
 	LIBVPX_EXTRA_CXX_FLAGS
-	"${CMAKE_CXX_FLAGS} -Wno-error -Wl,-ldl -Wl,-lrt  -pthread"
+	"${CMAKE_CXX_FLAGS} -Wno-error"
 )
 
 set(LIBVPX_CC "${ANDROID_TOOLCHAIN_ROOT}/bin/${TOOLCHAIN_PREFIX}-clang")

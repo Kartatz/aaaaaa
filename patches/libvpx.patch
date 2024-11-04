@@ -1,0 +1,38 @@
+From 5e25b3c8299bcc9ee4881b92fbbd40bd1986d6c0 Mon Sep 17 00:00:00 2001
+From: Kartatz <105828205+Kartatz@users.noreply.github.com>
+Date: Mon, 4 Nov 2024 06:05:06 +0000
+Subject: [PATCH] Fix compiling libvpx on Android
+
+---
+ build/make/configure.sh | 1 -
+ configure               | 2 +-
+ 2 files changed, 1 insertion(+), 2 deletions(-)
+
+diff --git a/build/make/configure.sh b/build/make/configure.sh
+index 8220d5cbe..3995f9b7b 100644
+--- a/build/make/configure.sh
++++ b/build/make/configure.sh
+@@ -1169,7 +1169,6 @@ EOF
+         android*)
+           echo "Assuming standalone build with NDK toolchain."
+           echo "See build/make/Android.mk for details."
+-          check_add_ldflags -static
+           soft_enable unit_tests
+           case "$AS" in
+             *clang)
+diff --git a/configure b/configure
+index 97e78996e..a0adc78ee 100755
+--- a/configure
++++ b/configure
+@@ -566,7 +566,7 @@ process_detect() {
+             # Supported platforms
+             ;;
+         *)
+-            if enabled gnu; then
++            if enabled gnu || enabled android; then
+                 echo "--enable-shared is only supported on ELF; assuming this is OK"
+             else
+                 die "--enable-shared only supported on ELF, OS/2, and Darwin for now"
+-- 
+2.47.0
+
