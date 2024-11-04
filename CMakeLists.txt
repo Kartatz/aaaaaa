@@ -19,6 +19,20 @@ set(LIBVPX_SOURCE_DIRECTORY "${CMAKE_SOURCE_DIR}/submodules/libvpx")
 set(LIBVPX_BUILD_DIRECTORY "${CMAKE_BINARY_DIR}/libvpx-build")
 set(LIBVPX_INSTALL_PREFIX "${LIBVPX_BUILD_DIRECTORY}/binaries")
 
+set(LIBVPX_TARGET)
+
+if ("${ANDROID_ABI}" STREQUAL "arm64-v8a")
+	set(LIBVPX_TARGET "arm64-android-gcc")
+elseif ("${ANDROID_ABI}" STREQUAL "armeabi-v7a")
+	set(LIBVPX_TARGET "armv7-android-gcc")
+elseif ("${ANDROID_ABI}" STREQUAL "x86")
+	set(LIBVPX_TARGET "x86-android-gcc")
+elseif ("${ANDROID_ABI}" STREQUAL "x86_64")
+	set(LIBVPX_TARGET "x86_64-android-gcc")
+else()
+	error("Unknown Android ABI: ${ANDROID_ABI}")
+endif()
+
 set(
 	LIBVPX_EXTRA_C_FLAGS
 	"${CMAKE_C_FLAGS} -Wno-macro-redefined"
@@ -51,6 +65,7 @@ set(
 	--enable-vp9
 	--disable-webm-io
 	--disable-werror
+	--target=${LIBVPX_TARGET}
 	--prefix=${LIBVPX_INSTALL_PREFIX}
 	--extra-cflags=${LIBVPX_EXTRA_C_FLAGS}
 	--extra-cxxflags=${LIBVPX_EXTRA_CXX_FLAGS}
