@@ -137,6 +137,8 @@ if (NOT EXISTS "${LIBVPX_INSTALL_PREFIX}")
 	)
 endif()
 
+add_custom_target(libvpx ALL DEPENDS "${LIBVPX_INSTALL_PREFIX}")
+
 if (NOT EXISTS "${LIBVPX_LIBRARY_DESTINATION}")
 	add_custom_command(
 		TARGET libvpx POST_BUILD
