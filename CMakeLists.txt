@@ -20,6 +20,11 @@ set(LIBVPX_BUILD_DIRECTORY "${CMAKE_BINARY_DIR}/libvpx-build")
 set(LIBVPX_INSTALL_PREFIX "${LIBVPX_BUILD_DIRECTORY}/binaries")
 
 set(
+	LIBVPX_EXTRA_C_FLAGS
+	"-Wno-macro-redefined"
+)
+
+set(
 	LIBVPX_CONFIGURE_FLAGS
 	--disable-static
 	--enable-shared
@@ -42,8 +47,8 @@ set(
 	--disable-webm-io
 	--disable-werror
 	--prefix=${LIBVPX_INSTALL_PREFIX}
-	--extra-cflags=${CMAKE_C_FLAGS}
-	--extra-cxxflags=${CMAKE_CXX_FLAGS}
+	--extra-cflags=${CMAKE_C_FLAGS} ${LIBVPX_EXTRA_C_FLAGS}
+	--extra-cxxflags=${CMAKE_CXX_FLAGS} ${LIBVPX_EXTRA_C_FLAGS}
 )
 
 message("CC=${ANDROID_TOOLCHAIN_ROOT}/bin/${TOOLCHAIN_PREFIX}-clang")
